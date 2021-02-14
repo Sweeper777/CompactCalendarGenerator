@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-CompactCalendarGenerator/Pods-CompactCalendarGenerator-frameworks.sh
+${BUILT_PRODUCTS_DIR}/GridLayout/GridLayout.framework
+${BUILT_PRODUCTS_DIR}/PaddingLabel/PaddingLabel.framework
+${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework
+${BUILT_PRODUCTS_DIR}/SwiftyUtils/SwiftyUtils.framework

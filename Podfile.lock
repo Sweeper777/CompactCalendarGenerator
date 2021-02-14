@@ -1,0 +1,28 @@
+PODS:
+  - GridLayout (0.2.6)
+  - PaddingLabel (1.2)
+  - SwiftDate (6.3.1)
+  - SwiftyUtils (5.2.0)
+
+DEPENDENCIES:
+  - GridLayout
+  - PaddingLabel
+  - SwiftDate
+  - SwiftyUtils
+
+SPEC REPOS:
+  trunk:
+    - GridLayout
+    - PaddingLabel
+    - SwiftDate
+    - SwiftyUtils
+
+SPEC CHECKSUMS:
+  GridLayout: ceca008dc47e27e48612adb7007e53b011894d08
+  PaddingLabel: 21ab5282c780366018b04c30e3920c2f55a2fd14
+  SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
+  SwiftyUtils: 4c99e810e769063dbd5d4e83b486961a5d470aeb
+
+PODFILE CHECKSUM: 860d8574627a4beed30007b39349f7d8c266ceca
+
+COCOAPODS: 1.10.0.rc.1
