@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   version = "1.3">
+   <BuildAction>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForRunning = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A654C5D25D7ADE50098A347"
+               BuildableName = "CompactCalendarGenerator.app"
+               BlueprintName = "CompactCalendarGenerator"
+               ReferencedContainer = "container:CompactCalendarGenerator.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <LaunchAction
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5A654C5D25D7ADE50098A347"
+            BuildableName = "CompactCalendarGenerator.app"
+            BlueprintName = "CompactCalendarGenerator"
+            ReferencedContainer = "container:CompactCalendarGenerator.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+</Scheme>
