@@ -32,3 +32,30 @@ func monthsGroupedByDayOfWeekOfFirstDay(year: Int) -> [Int: [Month]] {
             .mapValues { $0.map { Month(rawValue: $0.month - 1)! } }
 }
 
+func generateDaysGridItems(year: Int) -> [GridItem] {
+    func getColor(white: Bool, dayNumber: Int) -> UIColor {
+        let isLeap = Year(year).isLeap()
+        if (dayNumber == 29 && isLeap) || (dayNumber == 28 && !isLeap) {
+            return UIColor(named: "februaryColor")!
+        }
+        if dayNumber == 30 || dayNumber == 31 {
+            return monthDaysCountToColor[dayNumber]!
+        }
+        return white ? .white : UIColor(white: 0.75, alpha: 1.0)
+    }
+
+    var white = true
+    var gridItems = [GridItem]()
+    for i in 0..<31 {
+        gridItems.append(
+                GridItem(generateLabel(
+                        text: "\(i + 1)",
+                        backgroundColor: getColor(white: white, dayNumber: i + 1)),
+                        row: i % 7, column: i / 7,
+                        horizontalAlignment: .stretch)
+        )
+        white.toggle()
+    }
+    return gridItems
+}
+
