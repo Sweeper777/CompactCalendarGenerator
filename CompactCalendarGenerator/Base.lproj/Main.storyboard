@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a8w-4g-GJs">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="92I-PN-bEO">
+            <objects>
+                <navigationController id="a8w-4g-GJs" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3if-Cs-Dxr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Jbd-4U-0Yu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4he-8L-9dT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-188" y="86"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CompactCalendarGenerator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qux-Lj-6Ij">
+                                <rect key="frame" x="20" y="88" width="374" height="725"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgU-Hq-6ju">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="vvJ-Nt-rbN"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="action" id="LSQ-ac-Sms">
+                                        <connections>
+                                            <action selector="shareClick" destination="BYZ-38-t0r" id="LRC-m5-oGi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qux-Lj-6Ij" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Jc-mx-3K6"/>
+                            <constraint firstItem="rgU-Hq-6ju" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JNe-xq-iMl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qux-Lj-6Ij" secondAttribute="trailing" constant="20" id="Wzb-Cs-EoA"/>
+                            <constraint firstItem="rgU-Hq-6ju" firstAttribute="top" secondItem="Qux-Lj-6Ij" secondAttribute="bottom" id="XVj-vR-6EO"/>
+                            <constraint firstItem="rgU-Hq-6ju" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Yw7-do-6Ia"/>
+                            <constraint firstItem="Qux-Lj-6Ij" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZA8-jr-pvs"/>
+                            <constraint firstItem="rgU-Hq-6ju" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="fcZ-Ha-QtK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Bdb-Bm-fbn">
+                        <leftBarButtonItems>
+                            <barButtonItem title="-10" id="D10-9t-wr1">
+                                <connections>
+                                    <action selector="minus10" destination="BYZ-38-t0r" id="qAu-Gb-zla"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="-1" id="nrH-Tr-iKw">
+                                <connections>
+                                    <action selector="minus1" destination="BYZ-38-t0r" id="vAz-Na-noM"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <rightBarButtonItems>
+                            <barButtonItem title="+10" id="ds9-hc-MtT">
+                                <connections>
+                                    <action selector="plus10" destination="BYZ-38-t0r" id="hn4-rG-V1q"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="+1" id="pKm-zX-Iua">
+                                <connections>
+                                    <action selector="plus1" destination="BYZ-38-t0r" id="RGh-Fw-q6Y"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="Qux-Lj-6Ij" id="cWL-NH-s0h"/>
+                        <outlet property="shareButton" destination="LSQ-ac-Sms" id="Vyk-8k-Mfm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="528.98550724637687" y="85.714285714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
