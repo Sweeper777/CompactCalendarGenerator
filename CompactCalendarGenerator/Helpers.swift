@@ -99,3 +99,21 @@ func generateWeekdaysGridItems() -> [GridItem] {
     return gridItems
 }
 
+func generateMonthsGridItems(year: Int) -> ([GridItem], Int) {
+    let groups = monthsGroupedByDayOfWeekOfFirstDay(year: year)
+    let maxGroupSize = groups.map(\.value).max {$0.count < $1.count}?.count ?? 0
+    var gridItems = [GridItem]()
+    for weekStart in 1...7 {
+        let months = groups[weekStart] ?? []
+        for (index, month) in months.enumerated() {
+
+            gridItems.append(GridItem(generateLabel(
+                    text: month.name(style: .standaloneShort, locale: Locales.englishUnitedStatesComputer),
+                    backgroundColor: monthDaysCountToColor[month.numberOfDays(year: year)]!),
+                    row: maxGroupSize - 1 - index, column: weekStart - 1,
+                    horizontalAlignment: .stretch))
+        }
+    }
+    return (gridItems, maxGroupSize)
+}
+
