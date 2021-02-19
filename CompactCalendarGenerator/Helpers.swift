@@ -59,3 +59,23 @@ func generateDaysGridItems(year: Int) -> [GridItem] {
     return gridItems
 }
 
+extension GridItem {
+    func shift(dx: Int = 0, dy: Int = 0) {
+        position.column += dx
+        position.row += dy
+    }
+}
+// https://stackoverflow.com/a/43772545/5133585
+extension RangeReplaceableCollection {
+    func rotatingLeft(positions: Int) -> SubSequence {
+        let index = self.index(startIndex, offsetBy: positions, limitedBy: endIndex) ?? endIndex
+        return self[index...] + self[..<index]
+    }
+    mutating func rotateLeft(positions: Int) {
+        let index = self.index(startIndex, offsetBy: positions, limitedBy: endIndex) ?? endIndex
+        let slice = self[..<index]
+        removeSubrange(..<index)
+        insert(contentsOf: slice, at: endIndex)
+    }
+}
+
