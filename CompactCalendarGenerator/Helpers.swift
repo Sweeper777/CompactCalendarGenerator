@@ -117,3 +117,18 @@ func generateMonthsGridItems(year: Int) -> ([GridItem], Int) {
     return (gridItems, maxGroupSize)
 }
 
+func generateCalendar(for year: Int) -> UIView {
+    let days = generateDaysGridItems(year: year)
+    let weekDays = generateWeekdaysGridItems()
+    let (months, rowCount) = generateMonthsGridItems(year: year)
+    weekDays.forEach { $0.shift(dx: 5, dy: rowCount) }
+    days.forEach { $0.shift(dy: rowCount) }
+    months.forEach { $0.shift(dx: 5) }
+    let allGridItems = days + months + weekDays
+    let grid = UIView.gridLayoutView(
+            items: allGridItems,
+            rows: Array(repeating: .fill, count: rowCount + 7),
+            columns: Array(repeating: .fill, count: 12)
+    )
+    return grid
+}
