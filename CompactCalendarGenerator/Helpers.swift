@@ -79,3 +79,23 @@ extension RangeReplaceableCollection {
     }
 }
 
+func generateWeekdaysGridItems() -> [GridItem] {
+    var weekDays = Array(1...7)
+    let weekDayStrings = weekDays
+            .map { WeekDay(rawValue: $0)!.name(style: .standaloneShort, locale: Locales.englishUnitedStatesComputer) }
+    var gridItems = [GridItem]()
+    var white = true
+    for i in 0..<7 {
+        for (index, weekDay) in weekDays.enumerated() {
+            gridItems.append(GridItem(generateLabel(
+                    text: weekDayStrings[weekDay - 1],
+                    backgroundColor: white ? .white : UIColor(white: 0.75, alpha: 1.0)),
+                    row: index, column: i,
+                    horizontalAlignment: .stretch))
+            white.toggle()
+        }
+        weekDays.rotateLeft(positions: 1)
+    }
+    return gridItems
+}
+
