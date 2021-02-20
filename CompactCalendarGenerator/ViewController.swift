@@ -34,6 +34,14 @@ class ViewController: UIViewController {
         regenerateCalendar()
     }
 
+    @IBAction func shareClick() {
+        guard let imageData = imageView.image?.pngData() else {
+            return
+        }
+        let shareSheet = UIActivityViewController(activityItems: ["\(year) Compact Calendar", imageData], applicationActivities: nil)
+        shareSheet.popoverPresentationController?.barButtonItem = shareButton
+        present(shareSheet, animated: true)
+    }
 
     func regenerateCalendar() {
         let calendar = generateCalendar(for: year)
