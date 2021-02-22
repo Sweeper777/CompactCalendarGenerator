@@ -135,12 +135,27 @@ func generateCalendar(for year: Int, transposed: Bool = true) -> UIView {
             } else {
                 $0.shift(dy: -5)
             }
+            if $0.position.column == 3 {
+                $0.view.addBorders(edges: [.left], color: .black, thickness: 3)
+            }
+            if $0.position.row == 7 {
+                $0.view.addBorders(edges: [.top], color: .black, thickness: 3)
+            }
+        }
         grid = UIView.gridLayoutView(
                 items: allGridItems,
                 rows: Array(repeating: .fill, count: 12),
                 columns: Array(repeating: .fill, count: rowCount + 7)
         )
     } else {
+        allGridItems.forEach {
+            if $0.position.row == 3 {
+                $0.view.addBorders(edges: [.top], color: .black, thickness: 3)
+            }
+            if $0.position.column == 5 && $0.position.row >= 3 {
+                $0.view.addBorders(edges: [.left], color: .black, thickness: 3)
+            }
+        }
 
         grid = UIView.gridLayoutView(
                 items: allGridItems,
