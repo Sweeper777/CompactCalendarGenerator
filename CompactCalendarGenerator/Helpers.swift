@@ -117,7 +117,7 @@ func generateMonthsGridItems(year: Int) -> ([GridItem], Int) {
     return (gridItems, maxGroupSize)
 }
 
-func generateCalendar(for year: Int) -> UIView {
+func generateCalendar(for year: Int, transposed: Bool = true) -> UIView {
     let days = generateDaysGridItems(year: year)
     let weekDays = generateWeekdaysGridItems()
     let (months, rowCount) = generateMonthsGridItems(year: year)
