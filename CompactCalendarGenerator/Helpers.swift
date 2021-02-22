@@ -125,10 +125,28 @@ func generateCalendar(for year: Int, transposed: Bool = true) -> UIView {
     days.forEach { $0.shift(dy: rowCount) }
     months.forEach { $0.shift(dx: 5) }
     let allGridItems = days + months + weekDays
-    let grid = UIView.gridLayoutView(
-            items: allGridItems,
-            rows: Array(repeating: .fill, count: rowCount + 7),
-            columns: Array(repeating: .fill, count: 12)
-    )
+
+    let grid: UIView
+    if transposed {
+        allGridItems.forEach {
+            $0.position = Position(row: $0.position.column, column: $0.position.row)
+            if $0.position.row < 5 {
+                $0.shift(dy: 7)
+            } else {
+                $0.shift(dy: -5)
+            }
+        grid = UIView.gridLayoutView(
+                items: allGridItems,
+                rows: Array(repeating: .fill, count: 12),
+                columns: Array(repeating: .fill, count: rowCount + 7)
+        )
+    } else {
+
+        grid = UIView.gridLayoutView(
+                items: allGridItems,
+                rows: Array(repeating: .fill, count: rowCount + 7),
+                columns: Array(repeating: .fill, count: 12)
+        )
+    }
     return grid
 }
