@@ -163,5 +163,20 @@ func generateCalendar(for year: Int, transposed: Bool = true) -> UIView {
                 columns: Array(repeating: .fill, count: 12)
         )
     }
+    let yearLabel = PaddingLabel(frame: .zero)
+    yearLabel.text = "\(year)"
+    yearLabel.translatesAutoresizingMaskIntoConstraints = false
+    yearLabel.font = UIFont.systemFont(ofSize: 40)
+    yearLabel.topInset = 5
+    yearLabel.leftInset = 5
+    yearLabel.bottomInset = 5
+    grid.addSubview(yearLabel)
+    grid.leftAnchor.constraint(equalTo: yearLabel.leftAnchor).isActive = true
+
+    if transposed {
+        grid.bottomAnchor.constraint(equalTo: yearLabel.bottomAnchor).isActive = true
+    } else {
+        grid.topAnchor.constraint(equalTo: yearLabel.topAnchor).isActive = true
+    }
     return grid
 }
