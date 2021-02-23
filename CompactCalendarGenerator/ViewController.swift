@@ -1,5 +1,6 @@
 import SwiftDate
 import UIKit
+import LinkPresentation
 
 class ViewController: UIViewController {
 
@@ -35,10 +36,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func shareClick() {
-        guard let imageData = imageView.image?.pngData() else {
-            return
-        }
-        let shareSheet = UIActivityViewController(activityItems: ["\(year) Compact Calendar", imageData], applicationActivities: nil)
+        let renderer = CalendarPrintPageRenderer(image: imageView.image!)
+        let formatter = imageView.viewPrintFormatter()
+        renderer.addPrintFormatter(formatter, startingAtPageAt: 0)
+        let printJob = UIPrintInfo(dictionary: [:])
+        printJob.jobName = "\(year) Compact Calendar"
+        printJob.orientation = .landscape
+        let shareSheet = UIActivityViewController(
+                activityItems: [
+                    CalendarMetadataProvider(year: year, image: imageView.image!),
+                    imageView.image!,
+                    renderer,
+                    printJob],
+                applicationActivities: nil)
         shareSheet.popoverPresentationController?.barButtonItem = shareButton
         present(shareSheet, animated: true)
     }
