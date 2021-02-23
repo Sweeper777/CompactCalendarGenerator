@@ -63,3 +63,28 @@ class ViewController: UIViewController {
     }
 }
 
+class CalendarMetadataProvider: NSObject, UIActivityItemSource {
+    let image: UIImage
+    let year: Int
+
+    init(year: Int, image: UIImage) {
+        self.year = year
+        self.image = image
+    }
+
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        ""
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        nil
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let imageProvider = NSItemProvider(object: image)
+        let metadata = LPLinkMetadata()
+        metadata.imageProvider = imageProvider
+        metadata.title = "\(year) Compact Calendar"
+        return metadata
+    }
+}
