@@ -50,9 +50,6 @@ class ViewController: UIViewController {
         UIGraphicsBeginImageContext(size)
         UIColor.white.setFill()
         UIRectFill(CGRect(origin: .zero, size: size))
-        ("\(year)" as NSString).draw(at: .zero, withAttributes: [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 40)
-        ])
         calendar.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
