@@ -4,6 +4,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var year = DateInRegion().year
+    var isTransposed = true
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var shareButton: UIBarButtonItem!
@@ -12,7 +13,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         regenerateCalendar()
     }
-
 
     @IBAction func plus1() {
         year += 1
@@ -43,8 +43,13 @@ class ViewController: UIViewController {
         present(shareSheet, animated: true)
     }
 
+    @IBAction func transposeClick() {
+        isTransposed.toggle()
+        regenerateCalendar()
+    }
+
     func regenerateCalendar() {
-        let calendar = generateCalendar(for: year)
+        let calendar = generateCalendar(for: year, transposed: isTransposed)
         calendar.layoutIfNeeded()
         let size = calendar.bounds.size
         UIGraphicsBeginImageContext(size)
