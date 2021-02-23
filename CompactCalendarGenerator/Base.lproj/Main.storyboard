@@ -46,6 +46,11 @@
                                             <action selector="shareClick" destination="BYZ-38-t0r" id="LRC-m5-oGi"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Transpose" id="re4-XB-GdE">
+                                        <connections>
+                                            <action selector="transposeClick" destination="BYZ-38-t0r" id="D0f-7U-J40"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
